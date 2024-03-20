@@ -1,0 +1,12 @@
+.vertical{
+    display: grid;
+    gap: 24px;
+    align-content: start;
+}
+
+.horizontal{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 24px;
+    justify-content: start;
+}
