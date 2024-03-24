@@ -1,0 +1,30 @@
+.search-01 {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: center;
+}
+
+.search-02 {
+    display: grid;
+    /*列を2つ作成
+    グリッドアイテムを横に並べることができる
+    */
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+    align-items: center;
+
+
+    > button {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    > input {
+        /* 1列目から最終列まで伸ばす */
+        grid-column: 1 / -1;
+        /*インプットを1番目の行に配置します。インプットを1番目の行に配置して重ねる*/
+        grid-row: 1;
+        padding-left: 48px;
+    }
+}
