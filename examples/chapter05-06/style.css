@@ -1,0 +1,199 @@
+.section-01 {
+    display: grid;
+    /*名前付きGrid領域を定義*/
+    grid-template-areas:
+        "heading"
+        "text"
+        "button"
+        "."
+        "photo";
+    /*
+    4行目までの高さは自動調整
+    5行目の高さは480px
+    */
+    grid-template-rows: repeat(4, auto) 480px;
+
+    /*各行に24pxの隙間を開ける　*/
+    row-gap: 24px;
+    justify-items: center;
+    text-align: center;
+
+    > .heading {
+        grid-area: heading;
+    }
+
+    > .text {
+        grid-area: text;
+    }
+
+    > .button {
+        grid-area: button;
+    }
+
+    > .photo {
+        grid-area: photo;
+    }
+}
+
+.section-02 {
+    display: grid;
+    /*
+    1行目:
+    1列目: 空のセル、2列目: 画像
+    2行目:
+    1列目: 見出し、2列目: 画像
+    3行目:
+    1列目: 本文、2列目: 画像
+    4行目:
+    1列目: ボタン、2列目: 画像
+    5行目:
+    1列目: 空のセル、2列目: 画像
+    */
+    grid-template-areas:
+        ". photo"
+        "heading photo"
+        "text photo"
+        "button photo"
+        ". photo";
+
+    /*
+    1列目は 3/7、2列目は 4/7 のグリッドコンテナの利用可能なスペースで分割
+    */
+    grid-template-columns: 3fr 4fr;
+
+    /*
+    .photoは96pxの高さを指定
+    heading photo・text photo・button photoの各行は自動調整
+    . photoは96pxの高さを指定
+    */
+    grid-template-rows: 96px repeat(3, auto) 96px;
+    column-gap: 48px;
+    row-gap: 24px;
+
+    /*
+    要素の高さを親要素の高さに合わせるためのテクニック
+    */
+
+    > .photo {
+        height: 0;
+        min-height: 100%;
+    }
+
+    @media (width <= 768px) {
+        grid-template-areas:
+                "photo"
+                "heading"
+                "text"
+                "button";
+
+        /*
+        縦に1行ずつ配置
+        */
+        grid-template-columns: auto;
+        grid-template-rows: 240px repeat(3, auto);
+    }
+
+    > .heading {
+        grid-area: heading;
+    }
+
+    > .text {
+        grid-area: text;
+    }
+
+    > .button {
+        grid-area: button;
+    }
+
+    > .photo {
+        grid-area: photo;
+    }
+}
+
+.section-02-image-reverse {
+    display: grid;
+    grid-template-areas:
+        "photo ."
+        "photo heading"
+        "photo text"
+        "photo button"
+        "photo .";
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: 1fr repeat(3, auto) 1fr;
+    column-gap: 48px;
+    row-gap: 24px;
+
+    > .photo {
+        height: auto;
+    }
+
+    @media (width <= 768px) {
+        grid-template-areas:
+            "photo"
+            "heading"
+            "text"
+            "button";
+        grid-template-columns: auto;
+        grid-template-rows: repeat(4, auto);
+    }
+
+    > .heading {
+        grid-area: heading;
+    }
+
+    > .text {
+        grid-area: text;
+    }
+
+    > .button {
+        grid-area: button;
+    }
+
+    > .photo {
+        grid-area: photo;
+    }
+}
+
+.section-02-image-reverse {
+    display: grid;
+    grid-template-areas:
+        "photo ."
+        "photo heading"
+        "photo text"
+        "photo button"
+        "photo .";
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: 1fr repeat(3, auto) 1fr;
+    column-gap: 48px;
+    row-gap: 24px;
+
+    > .photo {
+        height: auto;
+    }
+
+    @media (width <= 768px) {
+        grid-template-areas:
+            "photo"
+            "heading"
+            "text"
+            "button";
+        grid-template-columns: auto;
+        grid-template-rows: repeat(4, auto);
+    }
+
+    > .heading {
+        grid-area: heading;
+    }
+
+    > .text {
+        grid-area: text;
+    }
+
+    > .button {
+        grid-area: button;
+    }
+
+    > .photo {
+        grid-area: photo;
+    }
+}
