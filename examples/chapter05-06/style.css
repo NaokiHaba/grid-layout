@@ -197,3 +197,141 @@
         grid-area: photo;
     }
 }
+
+.section-03 {
+    display: grid;
+
+    /*5行3列のグリッドが定義される*/
+    grid-template-areas:
+            ". . ."
+            ". heading ."
+            ". text ."
+            ". button ."
+            ". . .";
+
+    /*
+    3つの列幅を定義する
+    最初と最後は40px、真ん中は残りのスペースを占める
+    */
+    grid-template-columns: 40px auto 40px;
+    grid-template-rows: 96px repeat(3, auto) 96px;
+    row-gap: 24px;
+    justify-items: center;
+    color: white;
+    text-align: center;
+
+    /* 親要素の高さに合わせる*/
+
+    > .photo {
+        height: 0;
+        min-height: 100%;
+    }
+
+    > .heading {
+        grid-area: heading;
+    }
+
+    > .text {
+        grid-area: text;
+    }
+
+    > .button {
+        grid-area: button;
+    }
+
+    > .photo {
+        /*1列目から最後の列まで広げる*/
+        grid-column: 1 / -1;
+
+        /*1行目から最後の行まで広げる*/
+        grid-row: 1/ -1;
+
+        /*他の要素の背面に配置*/
+        z-index: -1;
+
+        /*明るさを50%にする*/
+        filter: brightness(0.5);
+    }
+}
+
+.section-03-align {
+    display: grid;
+    grid-template-areas:
+    ". . ."
+    ". heading ."
+    ". text ."
+    ". button ."
+    ". . .";
+    grid-template-columns: 40px auto 40px;
+    grid-template-rows: 140px repeat(3, auto) 40px;
+    row-gap: 24px;
+    justify-items: start;
+    color: white;
+    text-align: left;
+
+    > .photo {
+        height: 0;
+        min-height: 100%;
+    }
+
+    > .heading {
+        grid-area: heading;
+    }
+
+    > .text {
+        grid-area: text;
+    }
+
+    > .button {
+        grid-area: button;
+    }
+
+    > .photo {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        z-index: -1;
+        filter: brightness(0.5);
+    }
+}
+
+.section-03-height {
+    display: grid;
+    grid-template-areas:
+    ". . ."
+    ". heading ."
+    ". text ."
+    ". button ."
+    ". . .";
+    grid-template-columns: 40px auto 40px;
+    grid-template-rows: 1fr repeat(3, auto) 1fr;
+    row-gap: 24px;
+    justify-items: center;
+    box-sizing: content-box;
+    height: 600px;
+    color: white;
+    text-align: center;
+
+    > .photo {
+        height: 0;
+        min-height: 100%;
+    }
+
+    > .heading {
+        grid-area: heading;
+    }
+
+    > .text {
+        grid-area: text;
+    }
+
+    > .button {
+        grid-area: button;
+    }
+
+    > .photo {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        z-index: -1;
+        filter: brightness(0.5);
+    }
+}
