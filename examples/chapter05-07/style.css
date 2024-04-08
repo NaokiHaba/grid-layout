@@ -1,0 +1,151 @@
+.card-01 {
+    display: grid;
+    grid-template:
+        "photo photo photo photo photo" 1fr /* 写真エリア：5列, 1fr の高さ */
+        ". . . . ." 8px /* 空の行：8px の高さ */
+        ". avatar . title ." auto /* アバターとタイトル：auto の高さ */
+        ". avatar . subtitle ." auto /* アバターとサブタイトル：auto の高さ */
+        ". . . . ." 8px /* 空の行：8px の高さ */
+        / 8px auto 8px 1fr 8px; /* 列の定義：8px, auto, 8px, 1fr, 8px の幅 */
+    height: 200px;
+
+    > .photo {
+        height: 0;
+        min-height: 100%;
+    }
+
+    > .photo {
+        grid-area: photo;
+    }
+
+    > .title {
+        grid-area: title;
+    }
+
+    > .subtitle {
+        grid-area: subtitle;
+    }
+
+    > .avatar {
+        grid-area: avatar;
+        align-self: center;
+    }
+}
+
+.card-01a {
+    display: grid;
+    grid-template:
+        ". . . . ." 8px /* 空の行：8px の高さ */
+        ". avatar . title ." auto /* アバターとタイトル：auto の高さ */
+        ". avatar . subtitle ." auto /* アバターとサブタイトル：auto の高さ */
+        ". . . . ." 8px /* 空の行：8px の高さ */
+        "photo photo photo photo photo" 1fr /* 写真エリア：5列, 1fr の高さ */
+        / 8px auto 8px 1fr 8px; /* 列の定義：8px, auto, 8px, 1fr, 8px の幅 */
+    height: 200px;
+
+    > .photo {
+        height: 0;
+        min-height: 100%;
+    }
+
+    > .photo {
+        grid-area: photo;
+    }
+
+    > .title {
+        grid-area: title;
+    }
+
+    > .subtitle {
+        grid-area: subtitle;
+    }
+
+    > .avatar {
+        grid-area: avatar;
+        align-self: center;
+    }
+}
+
+.card-02 {
+    display: grid;
+    grid-template:
+		"photo  . . ." 20px /* 写真エリア：1列, 20px の高さ */
+		"photo . title ." auto /* タイトルエリア：1列, auto の高さ */
+		"photo . subtitle ." auto /* サブタイトルエリア：1列, auto の高さ */
+		"photo . avatar ." 1fr /* アバターエリア：1列, 1fr の高さ */
+		"photo  . . ." 20px /* 空の行：20px の高さ */
+		/ 40% 12px 1fr 12px;
+    height: 120px;
+
+    > .photo {
+        height: 0;
+        min-height: 100%;
+    }
+
+    > .photo {
+        grid-area: photo;
+    }
+
+    > .title {
+        grid-area: title;
+    }
+
+    > .subtitle {
+        grid-area: subtitle;
+    }
+
+    > .avatar {
+        grid-area: avatar;
+        place-self: end;
+    }
+}
+
+.card-03 {
+    display: grid;
+    grid-template:
+        "photo photo photo photo photo" 1fr /* 写真エリア：5列, 1fr の高さ */
+        ". . . . ." 8px /* 空の行：8px の高さ */
+        ". avatar . title ." auto /* アバターとタイトル：auto の高さ */
+        ". avatar . subtitle ." auto /* アバターとサブタイトル：auto の高さ */
+        ". . . . ." 8px /* 空の行：8px の高さ */
+        / 8px auto 8px 1fr 8px; /* 列の定義：8px, auto, 8px, 1fr, 8px の幅 */;
+    height: 200px;
+
+    > .photo {
+        height: 0;
+        min-height: 100%;
+    }
+
+    > .photo {
+        grid-column: 1/-1; /* 1列目から最終列まで */
+        grid-row: 1/-1; /* 1行目から最終行まで */
+    }
+
+    > .title {
+        grid-area: title;
+    }
+
+    > .subtitle {
+        grid-area: subtitle;
+    }
+
+    > .avatar {
+        grid-area: avatar;
+        align-self: center;
+    }
+
+    /*選択した要素の最後の子要素として仮想的な要素を作成 */
+    &::after {
+        content: "";
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        background-color: rgb(0 0 0 / 50%);
+    }
+
+    /*.photo クラスを持たない直接の子要素に対してスタイルを適用 */
+
+    > :not(.photo) {
+        z-index: 1;
+        color: white;
+    }
+}
